@@ -14,7 +14,7 @@
 
 **Status: in development.** The agent runs end to end against the real model providers in offline evaluation rounds; it is not yet serving live customer traffic.
 
-**Stack**: NestJS 11 API, Next.js 15 / React 19 web app, a separate Node.js WhatsApp transport service (Meta WhatsApp Cloud API), PostgreSQL 16 with Prisma, Redis 7, Docker Compose. Models: OpenAI `gpt-6-luna` for the live agent, Anthropic Claude Sonnet 5.5 and Claude Opus 5.5 for offline analysis, behind one provider-neutral gateway.
+**Stack**: NestJS 11 API, Next.js 15 / React 19 web app, a separate Node.js WhatsApp transport service (Meta WhatsApp Cloud API), PostgreSQL 16 with Prisma, Redis 7, Docker Compose. Models: the first generation ran on Anthropic Claude Haiku; the current build uses OpenAI `gpt-6-luna` for the agent and Anthropic Claude Sonnet 5.5 and Claude Opus 5.5 for offline analysis, behind one provider-neutral gateway.
 
 ## The problem
 
@@ -117,16 +117,11 @@ All numbers below come from offline evaluation rounds recorded in the private re
 
 **Not measured yet**
 
-- Conversations per month: [TODO]
-- Share of leads qualified without a human: [TODO]
-- Production response time: [TODO]
-- Production cost per conversation: [TODO]
+Production metrics (conversations per month, share of leads qualified without a human, response time and cost per conversation) will be published once the agent serves live traffic.
 
 ## My role
 
-I am the founder and product owner of the CRM, and I built the first generation of its AI between July and October 2026: the AI drafting and supervision modules in the API, the AI routing in the WhatsApp transport service, and the chat screens in the web app (about 175 commits). I defined what the agent may and may not do (the safety rules above), the operating modes and the human-in-the-loop policy, and I acted as the blind human grader in the evaluation rounds.
-
-The current agent runtime (router, Doer, Reviewer, model gateway and the evaluation tool) is a rewrite of that first version, implemented by another engineer on the team from my design and decisions, with AI coding assistants. The evaluation numbers above were measured on that rewrite.
+As Head of Technology, I designed and built the CRM and its AI agent end to end. I built the first generation of the AI between July and October 2026 on Anthropic Claude Haiku: the AI drafting and supervision modules in the API, the AI routing in the WhatsApp transport service, and the chat screens in the web app (about 175 commits). I then designed the current runtime (router, Doer, Reviewer, model gateway and the evaluation tool) and led its rewrite with AI coding assistants. I defined what the agent may and may not do (the safety rules above), the operating modes and the human-in-the-loop policy, and I acted as the blind human grader in the evaluation rounds.
 
 **What I learned**
 
