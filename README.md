@@ -2,6 +2,7 @@
 
 > A guarded, human-in-the-loop AI agent that answers wedding and event leads on WhatsApp for a São Paulo events and wedding venue group, inside the company's own CRM.
 > **Source code is private.** This repository documents the project; a live walkthrough is available on request.
+> Part of the [Events CRM with AI Sales Agent](https://github.com/victorsestrem/events-crm-ai-platform), which covers the CRM itself.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 ![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white)
