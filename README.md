@@ -2,7 +2,6 @@
 
 > A guarded, human-in-the-loop AI agent that answers wedding and event leads on WhatsApp for a São Paulo events and wedding venue group, inside the company's own CRM.
 > **Source code is private.** This repository documents the project; a live walkthrough is available on request.
-> Part of the [Events CRM with AI Sales Agent](https://github.com/victorsestrem/events-crm-ai-platform), which covers the CRM itself.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 ![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white)
@@ -32,6 +31,17 @@ A generic chatbot is a liability here. It can quote a price nobody approved, pro
 - **Kill switch**: a single on/off per company. Turning it off blocks new runs and pending approvals; turning it back on does not release old drafts. The CRM keeps receiving and sending human messages with all AI off.
 - **Evaluation harness**: a simulated-client tool that replays scripted and adversarial cases against the real chain, with blind human and LLM rubrics, a spend cap and full provenance (see Evals).
 - **Improvement loop**: an offline reviewer reads finished conversations and their outcomes, and a triage agent turns findings into proposed changes for a human to accept. Nothing is published automatically.
+
+## The CRM around it
+
+The agent lives inside a proprietary CRM that I architected and built for the same company, replacing spreadsheets, a third-party CRM and WhatsApp conversations spread across phones.
+
+- **Omnichannel inbox**: WhatsApp conversations, attendance queue, quick replies, groups and real-time updates over WebSockets.
+- **Sales pipeline**: leads, opportunities, Kanban, tasks, customers and companies, with SDR and closer dashboards.
+- **Security**: authentication, role-based permissions (RBAC), permission groups, ACL and full audit logs; PII rules for customer data.
+- **Demo kit**: a seeded demo environment to show the product without real data.
+- **Monorepo**: Next.js App Router web app (TanStack Query, React Hook Form + Zod, Tailwind, shadcn/ui), NestJS API with Prisma, shared packages for types, schemas and permissions; Docker Compose behind NGINX; TypeScript strict, CI gates, unit and integration tests.
+- **Scale**: ~170k lines of TypeScript, 260+ test files and 20+ backend domain modules.
 
 ## Architecture
 
